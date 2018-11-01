@@ -92,9 +92,10 @@ html body {
 .content {
     transition: all .4s;
     padding-top: 70px;
-    padding-bottom: 70px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 70px auto;
+    overflow: auto;
+    text-align: center;
 }
 
 .contentSidebarOn {
@@ -108,4 +109,12 @@ html body {
     background-color: #FBFAFA;
     transition: all .4s;
     z-index: 10;
+
+    &__date {
+        float: right;
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        padding-right: 20px;
+    }
 }
