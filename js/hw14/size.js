@@ -6,7 +6,7 @@ function showSize() {
     startTime = date.valueOf()
     setTimeout(checkTimeChanging, 2000);
     
-    block = document.querySelector('.size');
+    block = document.querySelector('.header__size');
     function checkTimeChanging() {
         let date = new Date();
         endTime = date.valueOf()

@@ -6,30 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css\main.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <script src="js\clocks.js" defer></script>
+    <script src="js\hw14\clocks.js" defer></script>
     <script src="js\sidebar.js" defer></script>
-    <script src="js\table.js" defer></script>
-    <script src="js\size.js" defer></script>
+    <script src="js\hw14\table.js" defer></script>
+    <script src="js\hw14\size.js" defer></script>
+    <script src="js\sidebar_links.js" defer></script>
 </head>
 <body>
     <header class="header">
-        <div class="clocks">
-
+        <div class="header__clocks">
+            <span class="hours"></span>
+            <span class="minutes"></span>
+            <span class="seconds"></span>
         </div>
-        <div class="size">
+        <div class="header__size">
 
         </div>
     </header>
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar activeSidebar" id="sidebar">
         <a class="sidebar__button" href="#" id="sidebarButton"><i class="fas fa-bars"></i></a>
+        <ul class="sidebar__list">
+            <li class="sidebar__item"><a href="#" class="sidebar__link" id="HW_14" onclick="asdsad()">HW_14</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link" id="HW_15">HW_15</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link" id="HW_16">HW_16</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link" id="HW_17">HW_17</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link" id="HW_18">HW_18</a></li>
+        </ul>
     </aside>
-    <section class="content" id="content">
-        <input id='row' type="text" name='row' />
-        <input id='data' type="text" name='data' />
-        <input id='make' type='button' name='make' value="Make table" />
-        <table id='table'>
+    <section class="content contentSidebarOn" id="content">
+        <div id="HW_14c">
+            <input id='row' type="text" name='row' />
+            <input id='data' type="text" name='data' />
+            <input id='make' type='button' name='make' value="Make table" />
+            
+            <table id='table'>
 
-        </table>
+            </table>
+        </div>
+        
     </section>
     <footer class="footer">
 
