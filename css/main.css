@@ -69,12 +69,12 @@ html body {
   left: 0; }
 
 .content {
-  transition: all .4s;
   padding-top: 70px;
   max-width: 1200px;
   margin: 0 auto 70px auto;
   overflow: auto;
-  text-align: center; }
+  text-align: center;
+  transition: all .4s; }
 
 .contentSidebarOn {
   padding-left: 250px; }
