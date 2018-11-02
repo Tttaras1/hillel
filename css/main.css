@@ -53,8 +53,7 @@ html body {
     color: black; }
   .sidebar__list {
     padding-left: 10px;
-    list-style-type: none;
-    border: 1px solid; }
+    list-style-type: none; }
   .sidebar__link {
     text-decoration: none;
     display: inline-block;
