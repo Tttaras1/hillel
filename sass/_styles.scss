@@ -52,6 +52,10 @@ html body {
     z-index: 5;
     min-width: 200px;
 
+    @media all and (max-width: 700px) {
+        left: 0px;
+    }
+
     &__button {
         position: relative;
         left: 270px;
@@ -65,7 +69,6 @@ html body {
     }
 
     &__item {
-
     }
 
     &__link {
@@ -87,19 +90,32 @@ html body {
 }
 .activeSidebar {
     left: 0;
+
+    @media all and (max-width: 700px) {
+        left: -250px;
+    }
 }
 
 .content {
     padding-top: 70px;
     max-width: 1200px;
+    min-width: 400px;
     margin: 0 auto 70px auto;
     overflow: auto;
     text-align: center;
     transition: all .4s;
+
+    @media all and (max-width: 700px) {
+        padding-left: 0px;
+    }
 }
 
 .contentSidebarOn {
     padding-left: 250px;
+
+    @media all and (max-width: 700px) {
+        padding-left: 0px;
+    }
 }
 .footer {
     position: fixed;
