@@ -89,7 +89,7 @@ html body {
   transition: all .4s;
   z-index: 10; }
   .footer__date {
-    float: right;
+    float: left;
     display: inline-block;
     height: 50px;
     line-height: 50px;
