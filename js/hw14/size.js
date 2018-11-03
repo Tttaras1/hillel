@@ -1,21 +1,15 @@
-let startTime;
-let endTime;
-
 function showSize() {
-    let date = new Date();
-    startTime = date.valueOf()
-    setTimeout(checkTimeChanging, 2000);
-    
-    block = document.querySelector('.header__size');
-    function checkTimeChanging() {
-        let date = new Date();
-        endTime = date.valueOf()
-        if (endTime - startTime >= 2000) {
-            console.log(document.documentElement.clientHeight);
-            console.log(document.documentElement.clientWidth);
+    let timerId;
+    window.addEventListener("resize", checkTimer);
+    function checkTimer() {
+        window.removeEventListener("resize", checkTimer);
+        clearTimeout(timerId);
+        timerId = setTimeout(putSize, 2000);
+        window.addEventListener("resize", checkTimer);
+        function putSize() {
+            block = document.querySelector('.header__size');
             block.textContent = document.documentElement.clientWidth + '*' + document.documentElement.clientHeight;
         }
     }
 }
-
-window.addEventListener("resize", showSize);
+showSize();

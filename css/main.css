@@ -43,9 +43,6 @@ html body {
   position: fixed;
   z-index: 5;
   min-width: 200px; }
-  @media all and (max-width: 700px) {
-    .sidebar {
-      left: 0px; } }
   .sidebar__button {
     position: relative;
     left: 270px;
@@ -70,9 +67,6 @@ html body {
 
 .activeSidebar {
   left: 0; }
-  @media all and (max-width: 700px) {
-    .activeSidebar {
-      left: -250px; } }
 
 .content {
   padding-top: 70px;
@@ -82,15 +76,9 @@ html body {
   overflow: auto;
   text-align: center;
   transition: all .4s; }
-  @media all and (max-width: 700px) {
-    .content {
-      padding-left: 0px; } }
 
 .contentSidebarOn {
   padding-left: 250px; }
-  @media all and (max-width: 700px) {
-    .contentSidebarOn {
-      padding-left: 0px; } }
 
 .footer {
   position: fixed;

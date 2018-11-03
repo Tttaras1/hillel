@@ -3,6 +3,7 @@ function asd() {
     let tdata = document.getElementById("data");
     let table = document.getElementById("table");
     table.innerHTML = ''
+    table.style = "display: inline-block"
     for (let n = 0; n < tdata.value; n++) {
         let tr = document.createElement("tr");
         table.appendChild(tr);
