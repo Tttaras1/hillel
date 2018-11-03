@@ -9,4 +9,5 @@ function sidebarAnimation() {
         content.classList.add('contentSidebarOn');
     }
 }
+
 document.getElementById('sidebarButton').addEventListener("click", sidebarAnimation);
