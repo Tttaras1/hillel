@@ -53,6 +53,9 @@ function timer() {
             hours = 0;
             minutes = 0;
             seconds = 0;
+            secondsTimer.textContent = setNum(seconds);
+            minutesTimer.textContent = setNum(minutes) + ":";
+            hoursTimer.textContent = setNum(hours) + ":";
         }   
     }
 }
