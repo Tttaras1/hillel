@@ -16,8 +16,9 @@ function timer() {
     secondsTimer.textContent = setNum(seconds);
     minutesTimer.textContent = setNum(minutes) + ":";
     hoursTimer.textContent = setNum(hours) + ":";
-    container.addEventListener("mouseover", startTimer);
-    container.addEventListener("mouseout", stopTimer);
+    container.addEventListener("mouseenter", stopTimer);
+    container.addEventListener("mouseleave", startTimer);
+    window.addEventListener("keydown", resetTimer);
     asd()
     function asd() {
         seconds += 1;
@@ -29,20 +30,30 @@ function timer() {
         secondsTimer.textContent = setNum(seconds);
         if (minutes > 59) {
             minutes = minutes - 60;
+            minutesTimer.textContent = setNum(minutes) + ":";
             hours += 1;
             hoursTimer.textContent = setNum(hours) + ":";
         }
         timerId = setTimeout(asd, 1000)
-        console.log(hours)
-        console.log(minutes)
-        console.log(seconds)
     }
+
     function startTimer() {
-        console.log('start');
-    }
-    function stopTimer() {
-        console.log('stop');
+        console.log('start timer');
         clearTimeout(timerId);
+        timerId = setTimeout(asd, 1000);
+    }
+
+    function stopTimer() {
+        console.log('stop timer');
+        clearTimeout(timerId);
+    }
+
+    function resetTimer(e) {
+        if (e.keyCode == 27) {
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        }   
     }
 }
 

@@ -93,4 +93,9 @@ html body {
     display: inline-block;
     height: 50px;
     line-height: 50px;
+    padding-left: 20px; }
+  .footer__timer {
+    display: inline-block;
+    float: right;
+    line-height: 50px;
     padding-right: 20px; }
