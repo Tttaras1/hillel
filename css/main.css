@@ -61,6 +61,9 @@ html body {
     transition: all 0.2s;
     border-bottom: 1px solid transparent;
     color: #1d1d1d; }
+    .sidebar__link-active {
+      border-right: 5px solid green;
+      border-bottom: 1px solid green; }
     .sidebar__link:hover {
       border-right: 5px solid blue;
       border-bottom: 1px solid blue; }
@@ -78,6 +81,8 @@ html body {
   transition: all .4s; }
   .content__homeWorks {
     display: none; }
+  .content__homeWorks-active {
+    display: block; }
 
 .contentSidebarOn {
   padding-left: 250px; }

@@ -75,6 +75,12 @@ html body {
         border-bottom: 1px solid transparent;
         color: #1d1d1d;
 
+
+        &-active {
+            border-right: 5px solid green;
+            border-bottom: 1px solid green;
+        }
+
         &:hover {
             border-right: 5px solid blue;
             border-bottom: 1px solid blue;
@@ -95,6 +101,10 @@ html body {
     transition: all .4s;
     &__homeWorks {
         display: none;
+    }
+
+    &__homeWorks-active {
+        display: block;
     }
 }
 
