@@ -76,6 +76,8 @@ html body {
   overflow: auto;
   text-align: center;
   transition: all .4s; }
+  .content__homeWorks {
+    display: none; }
 
 .contentSidebarOn {
   padding-left: 250px; }

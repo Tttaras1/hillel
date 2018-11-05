@@ -93,6 +93,9 @@ html body {
     overflow: auto;
     text-align: center;
     transition: all .4s;
+    &__homeWorks {
+        display: none;
+    }
 }
 
 .contentSidebarOn {
