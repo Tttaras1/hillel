@@ -38,13 +38,11 @@ function timer() {
     }
 
     function startTimer() {
-        console.log('start timer');
         clearTimeout(timerId);
         timerId = setTimeout(asd, 1000);
     }
 
     function stopTimer() {
-        console.log('stop timer');
         clearTimeout(timerId);
     }
 
@@ -56,6 +54,7 @@ function timer() {
             secondsTimer.textContent = setNum(seconds);
             minutesTimer.textContent = setNum(minutes) + ":";
             hoursTimer.textContent = setNum(hours) + ":";
+            document.getElementById('HW_15').textContent = "ESC pressed";
         }   
     }
 }

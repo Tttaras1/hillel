@@ -75,7 +75,6 @@ html body {
         border-bottom: 1px solid transparent;
         color: #1d1d1d;
 
-
         &-active {
             border-right: 5px solid green;
             border-bottom: 1px solid green;
@@ -99,12 +98,17 @@ html body {
     overflow: auto;
     text-align: center;
     transition: all .4s;
+
     &__homeWorks {
         display: none;
     }
 
     &__homeWorks-active {
         display: block;
+    }
+
+    &__infinitySlider {
+
     }
 }
 
