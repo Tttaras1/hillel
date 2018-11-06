@@ -106,9 +106,25 @@ html body {
     &__homeWorks-active {
         display: block;
     }
+}
 
-    &__infinitySlider {
+.infinitySlider {
+    width: 800px;
+    height: 600px;
+    overflow: hidden;
 
+    &__container {
+        width: 9999px;
+        list-style: none;
+    }
+
+    &__sliderContainer {
+        float: left;
+    }
+
+    &__sliderImage {
+        width: 800px;
+        height: 600px;
     }
 }
 

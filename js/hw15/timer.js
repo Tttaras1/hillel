@@ -54,7 +54,7 @@ function timer() {
             secondsTimer.textContent = setNum(seconds);
             minutesTimer.textContent = setNum(minutes) + ":";
             hoursTimer.textContent = setNum(hours) + ":";
-            document.getElementById('HW_15').textContent = "ESC pressed";
+            document.getElementById('HW_15').innerHTML += "ESC pressed <br />";
         }   
     }
 }

@@ -84,6 +84,19 @@ html body {
   .content__homeWorks-active {
     display: block; }
 
+.infinitySlider {
+  width: 800px;
+  height: 600px;
+  overflow: hidden; }
+  .infinitySlider__container {
+    width: 9999px;
+    list-style: none; }
+  .infinitySlider__sliderContainer {
+    float: left; }
+  .infinitySlider__sliderImage {
+    width: 800px;
+    height: 600px; }
+
 .contentSidebarOn {
   padding-left: 250px; }
 
