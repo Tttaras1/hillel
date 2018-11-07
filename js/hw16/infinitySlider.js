@@ -1,4 +1,4 @@
-function InfSlider() {
+function Slider() {
     let sliderArr = ['slider1.jpg', 'slider2.jpg', 'slider3.jpg' ];
     let container = document.querySelector('.infinitySlider');
     let asd;
@@ -11,4 +11,5 @@ function InfSlider() {
     }
 }
 
-InfSlider()
+let infSlider = new Slider();
+infSlider();
