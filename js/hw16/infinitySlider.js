@@ -4,7 +4,7 @@ function Slider() {
     let asd;
     changePicture()
     function changePicture() {
-        container.style.backgroundImage = "url(../../img/" + sliderArr[0] + ")";
+        container.style.backgroundImage = "url(./img/" + sliderArr[0] + ")";
         asd = sliderArr.shift();
         sliderArr[sliderArr.length] = asd;
         setTimeout(changePicture, 2000)
@@ -12,4 +12,4 @@ function Slider() {
 }
 
 let infSlider = new Slider();
-infSlider();
+infSlider;
