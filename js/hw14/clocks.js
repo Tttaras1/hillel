@@ -31,14 +31,19 @@ changeTime()
 
 
 function changeDate() {
+    function setNum(num) {
+        return (num < 10)
+            ? '0' + num
+            : num
+    }
     let date = new Date();
     let days = document.querySelector('.days');
     let months = document.querySelector('.months');
     let years = document.querySelector('.years');
 
-    days.innerHTML = date.getDate() + '.';
-    months.innerHTML = date.getMonth() + 1 + '.';
-    years.innerHTML = date.getFullYear();
+    days.innerHTML = setNum(date.getDate()) + '.';
+    months.innerHTML = setNum(date.getMonth()) + 1 + '.';
+    years.innerHTML = setNum(date.getFullYear());
 }
 
 changeDate()
