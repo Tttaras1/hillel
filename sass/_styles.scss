@@ -109,12 +109,26 @@ html body {
 }
 
 .infinitySlider {
-    margin:0 auto;
-    width: 800px;
+    margin: 0 auto;
+    width: 900px;
     height: 600px;
     overflow: hidden;
     background-size: cover;
     transition: all .4s;
+
+    &__container {
+        width: 9999px;
+    }
+
+    &__item {
+        display: inline-block;
+        float: left;
+        transition: all .4s;
+
+        &-noAnimation {
+            transition: none;
+        }
+    }
 }
 
 .contentSidebarOn {
