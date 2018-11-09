@@ -1,5 +1,9 @@
 function Slider(inf, ...images) {
-    inf = inf && true;
+    inf = inf || false;
+    const SLIDER = document.querySelector('.infinitySlider');
+    const CONTAINER = document.createElement('ul');
+    CONTAINER.classList.add('infinitySlider__container');
+    SLIDER.appendChild(CONTAINER);
     function addImageInArr(images) {
         let newElement;
         let newImage;
@@ -24,31 +28,36 @@ function Slider(inf, ...images) {
             ? infSlider()
             : moveableSlider()
         function infSlider() {
-            let pictureContainer = document.getElementsByClassName('infinitySlider__item');
-            let copyOfTheFirstCont = pictureContainer[0].cloneNode(true);
-            let style;
-            copyOfTheFirstCont.getElementsByTagName('img')[0].id = 'LastPictureWithDog';
-            CONTAINER.appendChild(copyOfTheFirstCont);
-            startSlider()
-            function startSlider() {
-                style = CONTAINER.getElementsByClassName('infinitySlider__item')[0];
-                CONTAINER.appendChild(style);
-                setTimeout(startSlider, 2000);
+            if (window.getComputedStyle(document.querySelector('#HW_16'), null).getPropertyValue("display") == 'block') {
+                let pictureContainer = document.getElementsByClassName('infinitySlider__item');
+                let moveableItem = CONTAINER.getElementsByClassName('infinitySlider__item')[0];
+                Array.prototype.forEach.call(pictureContainer, function (item) {
+                    item.style = "left: -900px"
+                });
+
+                moveableItem.addEventListener('transitionend', moveSlide);
+
+                function moveSlide() {
+                    CONTAINER.appendChild(moveableItem);
+                    Array.prototype.forEach.call(pictureContainer, function (item) {
+                        item.style = "left: 0px; transition: none;"
+                    });
+                    moveableItem.removeEventListener('transitionend', moveSlide)
+                }
             }
+
+            setTimeout(infSlider, 2000);
         }
 
         function moveableSlider() {
 
         }
     }
-
-    const SLIDER = document.querySelector('.infinitySlider');
-    const CONTAINER = document.createElement('ul');
-    CONTAINER.classList.add('infinitySlider__container');
-    SLIDER.appendChild(CONTAINER);
     addImageInArr(images);
     moveSlider(inf);
 }
 
 
-Slider(true, './img/slider1.jpg', './img/slider2.jpg', './img/slider3.jpg')
+let infSlider = new Slider(true, './img/slider1.jpg', './img/slider2.jpg', './img/slider3.jpg');
+infSlider;
+

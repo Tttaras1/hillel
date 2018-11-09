@@ -124,6 +124,7 @@ html body {
         display: inline-block;
         float: left;
         transition: all .4s;
+        left: 0;
 
         &-noAnimation {
             transition: none;
