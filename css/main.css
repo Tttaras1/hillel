@@ -101,6 +101,23 @@ html body {
     .infinitySlider__item-noAnimation {
       transition: none; }
 
+.moveableSlider {
+  margin: 0 auto;
+  width: 900px;
+  height: 600px;
+  overflow: hidden;
+  background-size: cover;
+  transition: all .4s; }
+  .moveableSlider__container {
+    width: 9999px; }
+  .moveableSlider__item {
+    display: inline-block;
+    float: left;
+    transition: all .4s;
+    left: 0; }
+    .moveableSlider__item-noAnimation {
+      transition: none; }
+
 .contentSidebarOn {
   padding-left: 250px; }
 

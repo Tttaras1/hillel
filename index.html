@@ -14,6 +14,7 @@
     <script src="js\sidebar_adaptive.js" defer></script>
     <script src="js\hw15\timer.js" defer></script>
     <script src="js\hw16\infinitySlider.js" defer></script>
+    <script src="js\hw17\students.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -46,12 +47,56 @@
         </div>
 
         <div id="HW_15" class="content__homeWorks">
+            <pre style="text-align: left">
+                var myButton = ducoment.getElementById("my_button");
+                myButton.addEventListener("click", clickMe)
+                function clickMe(event) {
+                    this.style.color = "red";
+                    console.log(event);
+                }
+                Универсальный clickMe↑
+            </pre>
             <p>Таймер находится там↓</p>
         </div>
 
         <div id="HW_16" class="content__homeWorks">
             <div class="infinitySlider">
                 
+            </div>
+        </div>
+
+        <div id="HW_17" class="content__homeWorks">
+            <div class="moveableSlider">
+
+            </div>
+            <div class="students">
+                <form method="get" id="sutdentsForm">
+                    <input type="text"
+                           name="firstName"
+                           required="required"
+                           value="" contextmenu="asd"
+                           placeholder="Введите Имя" />
+                    <input type="text"
+                           name="secondName"
+                           required="required"
+                           value=""
+                           placeholder="Введите Фамилию" />
+                    <input type="text"
+                           name="start"
+                           required="required"
+                           value=""
+                           placeholder="Введите год поступления" />
+                    <input type="text"
+                           name="graduating"
+                           required="required"
+                           value=""
+                           placeholder="Введите год выпуска" />
+                </form>
+
+                <input type="button" name="123123" value="Save" id="studentsSubmit" />
+                <table id="studentsTable">
+
+                </table>
             </div>
         </div>
 
