@@ -9,9 +9,10 @@ let check = false;
 function checker() {
     console.log(123)
 }
-function removeImg(count) {
-    pictures[count].style = 'width: 0px;height: 0px;margin:0;padding:0';
+function removeImg() {
+    pictures[i].style = 'width: 0px;height: 0px;margin:0;padding:0';
     i++;
+    console.log(i)
 }
 function removeCont(count) {
     containers[count].style = 'width: 0px;height: 0px;margin:0;padding:0';
@@ -28,11 +29,11 @@ let promise = new Promise(function (resolve, reject) {
 
 promise
     .then(() => {
-        removeImg(i);
+        Promise.resolve(removeImg())
     })
     .then(() => {
-        removeImg(i);
+        Promise.resolve(pictures[0].addEventListener('transitionend', removeImg))
     })
     .then(() => {
-        removeImg(i);
+        Promise.resolve(pictures[1].addEventListener('transitionend', () => pictures[2].style = 'width: 0px;height: 0px;margin:0;padding:0'))
     });
