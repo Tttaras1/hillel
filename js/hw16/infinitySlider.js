@@ -1,63 +1,66 @@
-function Slider(inf, ...images) {
-    inf = inf || false;
-    const SLIDER = document.querySelector('.infinitySlider');
-    const CONTAINER = document.createElement('ul');
-    CONTAINER.classList.add('infinitySlider__container');
-    SLIDER.appendChild(CONTAINER);
-    function addImageInArr(images) {
-        let newElement;
-        let newImage;
-        let newImageCSS = 'width: 900px; height: 600px;'
-        images.forEach(function (item, i) {
-            console.log(item, i);
-            newElement = document.createElement('li');
-            newElement.classList.add('infinitySlider__item');
-            CONTAINER.appendChild(newElement);
-            // (up) add li element on the page|| (down) add img element with image and inlineStyles
-            newImage = document.createElement('img');
-            newImage.id = 'pictureWithDog' + i;
-            newImage.alt = "dog" + i;
-            newImage.src = item;
-            newImage.style.cssText = newImageCSS;
-            newElement.appendChild(newImage);
+function Slider() {
+    let pos;
+    let count;
+    let img;
+    let cont;
+    this.setImg = function (string) {
+        this.images = document.querySelectorAll(string);
+        img = string;
+    }
+    this.setCont = function (string) {
+        this.container = document.querySelector(string);
+        cont = string;
+    }
+    this.center = function () {
+        Array.prototype.forEach.call(this.images, function (item) {
+            item.style.left = '-900px'
         })
     }
-
-    function moveSlider(typeOfSlider) {
-        typeOfSlider
-            ? infSlider()
-            : moveableSlider()
-        function infSlider() {
-            if (window.getComputedStyle(document.querySelector('#HW_16'), null).getPropertyValue("display") == 'block') {
-                let pictureContainer = document.getElementsByClassName('infinitySlider__item');
-                let moveableItem = CONTAINER.getElementsByClassName('infinitySlider__item')[0];
-                Array.prototype.forEach.call(pictureContainer, function (item) {
-                    item.style = "left: -900px"
-                });
-
-                moveableItem.addEventListener('transitionend', moveSlide);
-
-                function moveSlide() {
-                    CONTAINER.appendChild(moveableItem);
-                    Array.prototype.forEach.call(pictureContainer, function (item) {
-                        item.style = "left: 0px; transition: none;"
-                    });
-                    moveableItem.removeEventListener('transitionend', moveSlide)
-                }
-            }
-
-            setTimeout(infSlider, 2000);
-        }
-
-        function moveableSlider() {
-
-        }
+    this.left = function () {
+        pos = -1800;
+        Array.prototype.forEach.call(this.images, function (item) {
+            item.style = 'left:' + pos + 'px;';
+        })
+        setTimeout(this.move, 400, 'left');
     }
-    addImageInArr(images);
-    moveSlider(inf);
+    this.right = function () {
+        pos = 0;
+        Array.prototype.forEach.call(this.images, function (item, i) {
+            item.style = 'left:' + pos + 'px;';
+        })
+        setTimeout(this.move, 400, 'right');
+    }
+    this.move = function (direction) {
+        this.container = document.querySelector(cont);
+        this.images = document.querySelectorAll(img);
+        if (direction == 'left') {
+            pos = -900;
+            count = 0;
+            this.container.appendChild(this.images[count]);
+        } else {
+            pos = -900;
+            count = this.images.length - 1;
+            this.container.insertBefore(this.images[count], this.images[0]);
+        }
+        
+        Array.prototype.forEach.call(this.images, function (item) {
+            item.style = 'left:' + pos +'px; transition: none;';
+        })
+    }
 }
 
 
-let infSlider = new Slider(true, './img/slider1.jpg', './img/slider2.jpg', './img/slider3.jpg');
-infSlider;
+infSlider = new Slider();
+
+infSlider.setImg('.infinitySlider__item');
+infSlider.setCont('.infinitySlider__container');
+infSlider.start = function () {
+    infSlider.right();
+    setTimeout(infSlider.start, 2000)
+}
+infSlider.center();
+infSlider.start();
+
+
+
 

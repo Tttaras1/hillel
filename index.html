@@ -15,6 +15,8 @@
     <script src="js\hw15\timer.js" defer></script>
     <script src="js\hw16\infinitySlider.js" defer></script>
     <script src="js\hw17\students.js" defer></script>
+    <script src="js\hw17\moveableSlider.js" defer></script>
+    <script src="js\hw20\promise.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -35,6 +37,9 @@
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_16</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_17</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_18</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link">HW_19</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link">HW_20</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link">HW_21</a></li>
         </ul>
     </aside>
     <section class="content contentSidebarOn" id="content">
@@ -61,13 +66,48 @@
 
         <div id="HW_16" class="content__homeWorks">
             <div class="infinitySlider">
-                
+                <ul class="infinitySlider__container">
+                    <li class="infinitySlider__item">
+                        <img src="./img/slider1.jpg" alt="dog0" class="infinitySlider__image" />
+                    </li>
+                    <li class="infinitySlider__item">
+                        <img src="./img/slider2.jpg" alt="dog1" class="infinitySlider__image" />
+                    </li>
+                    <li class="infinitySlider__item">
+                        <img src="./img/slider3.jpg" alt="dog2" class="infinitySlider__image" />
+                    </li>
+                </ul>
             </div>
         </div>
 
         <div id="HW_17" class="content__homeWorks">
             <div class="moveableSlider">
-
+                <input type="button" value="←" onclick="moveableSlider.left()">
+                <input type="button" value="→" onclick="moveableSlider.right()">
+                <ul class="moveableSlider__container">
+                    <li class="moveableSlider__item">
+                        <img src="./img/slider1.jpg" alt="dog0" class="moveableSlider__image" />
+                    </li>
+                    <li class="moveableSlider__item">
+                        <img src="./img/slider2.jpg" alt="dog1" class="moveableSlider__image" />
+                    </li>
+                    <li class="moveableSlider__item">
+                        <img src="./img/slider3.jpg" alt="dog2" class="moveableSlider__image" />
+                    </li>
+                </ul>
+            </div>
+            <div class="secondSlider">
+                <ul class="secondSlider__container">
+                    <li class="secondSlider__item">
+                        <img src="./img/slider1.jpg" alt="dog0" class="moveableSlider__image" />
+                    </li>
+                    <li class="secondSlider__item">
+                        <img src="./img/slider2.jpg" alt="dog1" class="moveableSlider__image" />
+                    </li>
+                    <li class="secondSlider__item">
+                        <img src="./img/slider3.jpg" alt="dog2" class="moveableSlider__image" />
+                    </li>
+                </ul>
             </div>
             <div class="students">
                 <form method="get" id="sutdentsForm">
@@ -94,9 +134,57 @@
                 </form>
 
                 <input type="button" name="123123" value="Save" id="studentsSubmit" />
-                <table id="studentsTable">
+                <table id="studentsTable"></table>
+            </div>
+        </div>
+        <div id="HW_20" class="content__homeWorks content__homeWorks-active" style="text-align: left">
+            <div class="progressBar">
+                <div class="progressBar__inside"></div>
+            </div>
+            <div class="row">
+                <div class="buttons">
+                    <button id="first">example #1</button>
+                    <button id="second">example #2</button>
+                </div>
+            </div>
+            <h2>Head</h2>
+            <div class="promiseEx">
+                <div class="promiseEx__container">
+                    <img src="./img/slider2.jpg" alt="dog1" class="promiseEx__img" />
+                    <p class="promiseEx__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Perspiciatis eos blanditiis dolores.
+                        Porro quas aliquam quasi officiis cumque similique suscipit, ea voluptas,
+                        aspernatur quae atque explicabo, numquam pariatur magnam rem?
+                    </p>
+                </div>
 
-                </table>
+            </div>
+            <h2>Head</h2>
+            <div class="promiseEx">
+                <div class="promiseEx__container">
+                    <img src="./img/slider2.jpg" alt="dog1" class="promiseEx__img" />
+                    <p class="promiseEx__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Perspiciatis eos blanditiis dolores.
+                        Porro quas aliquam quasi officiis cumque similique suscipit, ea voluptas,
+                        aspernatur quae atque explicabo, numquam pariatur magnam rem?
+                    </p>
+                </div>
+
+            </div>
+            <h2>Head</h2>
+            <div class="promiseEx">
+                <div class="promiseEx__container">
+                    <img src="./img/slider2.jpg" alt="dog1" class="promiseEx__img" />
+                    <p class="promiseEx__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Perspiciatis eos blanditiis dolores.
+                        Porro quas aliquam quasi officiis cumque similique suscipit, ea voluptas,
+                        aspernatur quae atque explicabo, numquam pariatur magnam rem?
+                    </p>
+                </div>
+
             </div>
         </div>
 
