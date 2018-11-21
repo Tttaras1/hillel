@@ -160,8 +160,8 @@ html body {
   width: 900px;
   height: 100px;
   border: 1px solid black;
-  margin: 5px;
-  padding: 5px;
+  margin: 0px;
+  padding: 0px;
   transition: all 1s;
   overflow: hidden; }
   .promiseEx::after {
