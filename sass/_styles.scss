@@ -114,77 +114,41 @@ html body {
 }
 
 .infinitySlider {
-    margin: 0 auto;
-    width: 900px;
-    height: 600px;
-    overflow: hidden;
-    background-size: cover;
-    transition: all .4s;
-
-    &__container {
-        width: 9999px;
-    }
-
-    &__item {
-        display: inline-block;
-        float: left;
-        transition: all .4s;
-        left: 0;
-    }
-
-    &__image {
-        width: 900px;
-        height: 600px;
-    }
+    @include slider;
 }
 
 .moveableSlider {
-    margin: 0 auto;
-    width: 900px;
-    height: 600px;
-    overflow: hidden;
-    background-size: cover;
-    transition: all .4s;
-
-    &__container {
-        width: 9999px;
-    }
-
-    &__item {
-        display: inline-block;
-        float: left;
-        transition: all .4s;
-        left: 0;
-    }
-
-    &__image {
-        width: 900px;
-        height: 600px;
-    }
+    @include slider;
 }
 
 .secondSlider {
-    margin: 0 auto;
-    width: 900px;
-    height: 600px;
-    overflow: hidden;
-    background-size: cover;
-    transition: all .4s;
+    @include slider;
+}
+.navigation {
+    margin: 20px auto;
+    text-align: center;
 
-    &__container {
-        width: 9999px;
-    }
-
-    &__item {
+    &__dot {
+        height: 16px;
+        width: 16px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        border: 1px solid #bbb;
         display: inline-block;
-        float: left;
-        transition: all .4s;
-        left: 0;
-    }
-
-    &__image {
-        width: 900px;
-        height: 600px;
+        margin: 0px 10px 0px 10px;
+        &--active {
+            &::after {
+                content: "";
+                height: 11px;
+                width: 11px;
+                background-color: #bbb;
+                border-radius: 50%;
+                position: relative;
+                top: 1px;
+                left: 1.5px;
+                display: block;
+            }
+        }
     }
 }
 

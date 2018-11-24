@@ -1,66 +1,55 @@
 function Slider() {
-    let pos;
-    let count;
-    let img;
-    let cont;
-    this.setImg = function (string) {
-        this.images = document.querySelectorAll(string);
-        img = string;
+    let pos = 0;
+    let ths = this;
+    this.setImages = function (selector) {
+        this.images = document.getElementsByClassName(selector);
     }
-    this.setCont = function (string) {
-        this.container = document.querySelector(string);
-        cont = string;
+    this.setContainer = function (selector) {
+        this.container = document.querySelector(selector);
     }
-    this.center = function () {
-        Array.prototype.forEach.call(this.images, function (item) {
-            item.style.left = '-900px'
-        })
+    this.cloneLastImg = function () {
+        let clonePic = this.images[this.images.length - 1].cloneNode(true);
+        this.container.insertBefore(clonePic, this.images[0]);
     }
-    this.left = function () {
-        pos = -1800;
-        Array.prototype.forEach.call(this.images, function (item) {
-            item.style = 'left:' + pos + 'px;';
-        })
-        setTimeout(this.move, 400, 'left');
-    }
-    this.right = function () {
-        pos = 0;
-        Array.prototype.forEach.call(this.images, function (item, i) {
-            item.style = 'left:' + pos + 'px;';
-        })
-        setTimeout(this.move, 400, 'right');
-    }
-    this.move = function (direction) {
-        this.container = document.querySelector(cont);
-        this.images = document.querySelectorAll(img);
-        if (direction == 'left') {
-            pos = -900;
-            count = 0;
-            this.container.appendChild(this.images[count]);
-        } else {
-            pos = -900;
-            count = this.images.length - 1;
-            this.container.insertBefore(this.images[count], this.images[0]);
+    this.checkPictureLeft = function () {
+        if (pos == 0) {
+            pos = -(this.images.length - 1) * 900;
+            Array.prototype.forEach.call(this.images, function (item) {
+                item.style = 'left:' + pos + 'px; transition: none;';
+            })
         }
-        
-        Array.prototype.forEach.call(this.images, function (item) {
-            item.style = 'left:' + pos +'px; transition: none;';
+    }
+    this.checkPictureRight = function () {
+        if (pos == -(this.images.length - 1) * 900) {
+            pos = 0;
+            Array.prototype.forEach.call(this.images, function (item) {
+                item.style = 'left:' + pos + 'px; transition: none;';
+            })
+        }
+    }
+    this.moveElements = function () {
+        Array.prototype.forEach.call(ths.images, function (item) {
+            item.style = 'left:' + pos + 'px;';
         })
+    }
+    this.moveLeft = function () {
+        ths.checkPictureLeft();
+        pos += 900;
+        setTimeout(ths.moveElements, 100)
+    }
+    this.moveRight = function () {
+        ths.checkPictureRight();
+        pos -= 900;
+        setTimeout(ths.moveElements, 100)
     }
 }
 
-
-infSlider = new Slider();
-
-infSlider.setImg('.infinitySlider__item');
-infSlider.setCont('.infinitySlider__container');
-infSlider.start = function () {
-    infSlider.right();
-    setTimeout(infSlider.start, 2000)
+let infinitySlider = new Slider();
+infinitySlider.setImages('infinitySlider__item');
+infinitySlider.setContainer('.infinitySlider__container');
+infinitySlider.cloneLastImg();
+infinitySlider.start = function () {
+    infinitySlider.moveLeft();
+    setTimeout(infinitySlider.start, 2000)
 }
-infSlider.center();
-infSlider.start();
-
-
-
-
+infinitySlider.start()

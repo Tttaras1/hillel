@@ -1,17 +1,45 @@
 let moveableSlider = new Slider();
-moveableSlider.setImg('.moveableSlider__item');
-moveableSlider.setCont('.moveableSlider__container');
-moveableSlider.center();
-Array.prototype.forEach.call(moveableSlider.images, function (item, i) {
-    item.title = 'cute dog ' + i;
-})
+moveableSlider.setImages('moveableSlider__item');
+moveableSlider.setContainer('.moveableSlider__container');
+moveableSlider.cloneLastImg();
+
 moveableSlider.start = function () {
-    moveableSlider.right();
+    moveableSlider.moveLeft();
     setTimeout(moveableSlider.start, 2000)
 }
+Array.prototype.forEach.call(moveableSlider.images, function (item, i) {
+    item.title = 'the cutiest dog' + i;
+})
 moveableSlider.start()
+document.querySelector('#qwe').addEventListener('click', moveableSlider.moveLeft)
+document.querySelector('#rty').addEventListener('click', moveableSlider.moveRight)
 
-let secondSlider = new Slider();
-secondSlider.setImg('.secondSlider__item');
-secondSlider.setCont('.secondSlider__container');
-secondSlider.center();
+let sliderWithIndicators = new Slider();
+sliderWithIndicators.setImages('secondSlider__item');
+sliderWithIndicators.setContainer('.secondSlider__container');
+sliderWithIndicators.moveOnTarget = function (event) {
+    let picture = event.target.getAttribute('slidenum') - 1;
+    if (picture >= 0) {
+        for (let i = 0; i < sliderWithIndicators.images.length; i++) {
+            document.querySelectorAll('.navigation__dot')[i].classList.remove('navigation__dot--active');
+        }
+        event.target.classList.add('navigation__dot--active');
+        Array.prototype.forEach.call(this.images, function (item) {
+            item.style = 'left:' + (-900 * picture) + 'px;';
+        })
+    }
+}
+sliderWithIndicators.buildIndicators = function () {
+    let containerForDots = document.createElement('div');
+    containerForDots.classList.add('navigation');
+    document.querySelector('#HW_17').appendChild(containerForDots);
+    containerForDots.addEventListener('click', () => sliderWithIndicators.moveOnTarget(event));
+    Array.prototype.forEach.call(this.images, function (item, i) {
+        let span = document.createElement('span');
+        span.classList.add('navigation__dot');
+        containerForDots.appendChild(span);
+        span.setAttribute('slidenum', i + 1);
+    })
+    containerForDots.querySelector('.navigation__dot').classList.add('navigation__dot--active')
+}
+sliderWithIndicators.buildIndicators()
