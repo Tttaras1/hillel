@@ -110,7 +110,7 @@
                 </ul>
             </div>
             <div class="students">
-                <form method="get" id="sutdentsForm">
+                <form method="get" id="studentsForm">
                     <input type="text"
                            name="firstName"
                            required="required"
@@ -133,14 +133,18 @@
                            placeholder="Введите год выпуска" />
                 </form>
 
-                <input type="button" name="123123" value="Save" id="studentsSubmit" />
+                <input type="button" name="cancelButton" value="ClearForm" />
+                <input type="button" name="saveButton" value="Save" disabled="disabled" />
                 <table id="studentsTable">
                     <thead>
                         <tr>
-                            <td>firstName</td>
-                            <td>secondName</td>
-                            <td>enter</td>
-                            <td>graduating</td>
+                            <td>Id</td>
+                            <td>FirstName</td>
+                            <td>SecondName</td>
+                            <td>Enter</td>
+                            <td>Graduating</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
                 </table>
