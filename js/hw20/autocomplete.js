@@ -6,7 +6,7 @@ function autocomplete() {
         let place = autocomplete.getPlace();
         ltd = place.geometry.location.lat();
         lng = place.geometry.location.lng();
-        let xhr = new XMLHttpRequest();
+        let xhr = new XMLHttpsRequest();
         xhr.open('GET', 'http://api.openweathermap.org/data/2.5/weather?lat=48.464717&lon=35.0461&appid=ec27c25d830d93288cf58c3b568da350', true);
         xhr.send();
         if (xhr.status != 200) {
