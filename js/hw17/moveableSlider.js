@@ -34,9 +34,8 @@ sliderWithIndicators.moveOnTarget = function (event) {
 }
 sliderWithIndicators.buildIndicators = function () {
     let containerForDots = document.createElement('div');
-    let referenceElement = document.querySelector('.students');
     containerForDots.classList.add('navigation');
-    document.querySelector('#HW_17').insertBefore(containerForDots, referenceElement);
+    document.querySelector('#HW_17').appendChild(containerForDots);
     containerForDots.addEventListener('click', () => sliderWithIndicators.moveOnTarget(event));
     Array.prototype.forEach.call(this.images, function (item, i) {
         let span = document.createElement('span');

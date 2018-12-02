@@ -16,7 +16,10 @@
     <script src="js\hw16\infinitySlider.js" defer></script>
     <script src="js\hw17\students.js" defer></script>
     <script src="js\hw17\moveableSlider.js" defer></script>
-    <script src="js\hw20\promise.js" defer></script>
+    <script src="js\hw19\promise.js" defer></script>
+    <script src="js\hw20\autocomplete.js" defer></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwIxd570Fxyd9nEM_LTtzLrlEHXf34CDE&libraries=places"></script>
+
 </head>
 <body>
     <header class="header">
@@ -36,7 +39,7 @@
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_15</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_16</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_17</a></li>
-            <li class="sidebar__item"><a href="#" class="sidebar__link">HW_18</a></li>
+            <li class="sidebar__item"><a href="#" class="sidebar__link">HW_17-2</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_19</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_20</a></li>
             <li class="sidebar__item"><a href="#" class="sidebar__link">HW_21</a></li>
@@ -109,6 +112,8 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div id="HW_17-2" class="content__homeWorks">
             <div class="students">
                 <form method="get" id="studentsForm">
                     <input type="text"
@@ -133,7 +138,7 @@
                            placeholder="Введите год выпуска" />
                 </form>
 
-                <input type="button" name="cancelButton" value="ClearForm" />
+                <input type="button" name="cancelButton" value="Cancel" />
                 <input type="button" name="saveButton" value="Save" disabled="disabled" />
                 <table id="studentsTable">
                     <thead>
@@ -150,7 +155,7 @@
                 </table>
             </div>
         </div>
-        <div id="HW_20" class="content__homeWorks" style="text-align: left">
+        <div id="HW_19" class="content__homeWorks" style="text-align: left">
             <div class="progressBar">
                 <div class="progressBar__inside"></div>
             </div>
@@ -199,6 +204,9 @@
                 </div>
 
             </div>
+        </div>
+        <div id="HW_20" class="content__homeWorks">
+            <input type="text" name="city" value="" placeholder="Введите город" />
         </div>
 
     </section>

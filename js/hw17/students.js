@@ -76,13 +76,20 @@ function students() {
     table.addEventListener('click',() => editTable(event))
     function editTable(event) {
         if (event.target.hasAttribute('editNum')) {
-            function editElem(event) {
+            function editElem() {
                 editElements[1].textContent = firstName.value;
                 editElements[2].textContent = secondName.value;
                 editElements[3].textContent = enter.value;
                 editElements[4].textContent = graduating.value;
                 saveButton.addEventListener('click', buildTable);
                 saveButton.removeEventListener('click', editElem);
+                removeText();
+            }
+            function cancelEdit() {
+                cancelButton.removeEventListener('click', cancelEdit);
+                cancelButton.addEventListener('click', removeText);
+                saveButton.removeEventListener('click', editElem);
+                saveButton.addEventListener('click', buildTable);
                 removeText();
             }
             let editId = event.target.getAttribute('editNum');
@@ -95,6 +102,8 @@ function students() {
             graduating.value = editElements[4].textContent;
             saveButton.removeEventListener('click', buildTable);
             saveButton.addEventListener('click', editElem);
+            cancelButton.removeEventListener('click', removeText);
+            cancelButton.addEventListener('click', cancelEdit);
 
         } else if (event.target.hasAttribute('removeNum')) {
             let removeId = event.target.getAttribute('removeNum');
