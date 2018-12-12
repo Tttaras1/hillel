@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css\main.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <script src="js\jquery\dist\jquery.js"></script>
     <script src="js\hw14\clocks.js" defer></script>
     <script src="js\sidebar.js" defer></script>
     <script src="js\hw14\table.js" defer></script>
@@ -18,6 +19,7 @@
     <script src="js\hw17\moveableSlider.js" defer></script>
     <script src="js\hw19\promise.js" defer></script>
     <script src="js\hw20\autocomplete.js" defer></script>
+    <script src="js\hw23\jquery_tableStudents.js" defer></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwIxd570Fxyd9nEM_LTtzLrlEHXf34CDE&libraries=places"></script>
 
 </head>
@@ -211,7 +213,60 @@
         <div id="HW_20" class="content__homeWorks">
             <input type="text" name="city" value="" placeholder="Введите город" />
         </div>
+        <div id="HW_21" class="content__homeWorks">
+            <form action="get" id="jqStudentsForm">
+                <input type="text" 
+                       name="jqSurname"
+                       required="required"
+                       value=""
+                       placeholder="Введите имя и фамилию" />
 
+                <input type="text" 
+                       name="jqFaculty"
+                       required="required"
+                       value=""
+                       placeholder="Введите факультет" />
+
+                <input type="text" 
+                       name="jqAge"
+                       required="required"
+                       value=""
+                       placeholder="Введите возраст" />
+
+                <input type="text" 
+                       name="jqCourse"
+                       required="required"
+                       value=""
+                       placeholder="Введите курс на котором вы учитесь" />
+
+                <input type="text" 
+                       name="jqSite"
+                       required="required"
+                       value=""
+                       placeholder="Введите ваш любимый сайт" />
+
+                <input type="text" 
+                       name="jqPhoneNum"
+                       required="required"
+                       value=""
+                       placeholder="Введите ваш номер телефона" />
+            </form>
+            <input type="button" name="jqCancelButton" value="Cancel" />
+            <input type="button" name="jqSaveButton" value="Save" disabled="disabled" />
+            <table id="jqStudentsTable">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Age</td>
+                        <td>Faculty</td>
+                        <td>Course</td>
+                        <td>Site</td>
+                        <td>Phone</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </section>
     <footer class="footer">
         <div class="footer__date">

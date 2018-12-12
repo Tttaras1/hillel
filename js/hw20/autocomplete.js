@@ -17,7 +17,7 @@ function weather() {
         xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 400) {
                 let data = JSON.parse(xhr.responseText);
-                console.log(data);
+                // console.log(data);
                 let temperature = Math.round(data.main.temp - 273.15);
                 let weather = data.weather[0].description;
                 textContainer.innerHTML = ('Current temperature: ' + temperature + 'C;' + weather + '<br />' + data.name);
