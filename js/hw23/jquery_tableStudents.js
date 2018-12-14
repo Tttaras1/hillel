@@ -5,20 +5,18 @@ function jqueryStud() {
     let age = $('[name="jqAge"]');
     let course = $('[name="jqCourse"]');
     let phoneNum = $('[name="jqPhoneNum"]');
-    let table = $('#studentsTable');
+    let table = $('#jqStudentsTable');
     let saveButton = $('[name="jqSaveButton"]');
     let cancelButton = $('[name="jqCancelButton"]');
     let form = $('#jqStudentsForm');
     let triggerObj = {};
     let id = 1;
-    let localStudents = localStorage.getItem('studentsTable');
     let localJSON;
 
     $('#jqStudentsTable thead').after('<tbody> </tbody>');
     $('#jqStudentsTable tbody').after('<tfoot> </tfoot>');
-
-    if (localStudents) {
-        JSON.parse(localStudents).forEach(function(item, i) {
+    if (localStorage.getItem('studentsTable')) {
+        JSON.parse(localStorage.getItem('studentsTable')).forEach(function(item, i) {
             $('#jqStudentsTable tbody').append('<tr><td>'+ id++ +'</td> </tr>');
             for (key in item) {
                 $('#jqStudentsTable tbody tr:last').append('<td>' + item[key] + '</td>');
@@ -27,30 +25,43 @@ function jqueryStud() {
     } else {
         localStorage.setItem('studentsTable', '[]');
     }
+    
     saveButton.on('click', buildTable);
     function buildTable() {
-        let deleteIcon = $('<td/>', {
-            title: 'Delete',
-            delNumber: id
-        });
-        let editeIcon = $('<td/>', {
-            title: 'Edit',
-            editNumber: id
-        });
         let storageObj = {};
         $('#jqStudentsTable tbody').append('<tr><td>'+ id++ +'</td> </tr>');
         for (var i = 0; i < form.children().length; i++) {
             storageObj[form.children()[i].name] = form.children()[i].value;
-            $('#jqStudentsTable tbody tr:last').append('<td>' + form.children()[i].value + '</td>')
+            $('#jqStudentsTable tbody tr:last').append('<td>' + form.children()[i].value + '</td>');
         }
         
         localJSON = JSON.parse(localStorage.getItem('studentsTable'));
         localJSON.push(storageObj);
-        localStorage.setItem('studentsTable', JSON.stringify(localJSON))
+        localStorage.setItem('studentsTable', JSON.stringify(localJSON));
     }
+    cancelButton.click(() => {
+        form.find('input').val('');
+    })
 
-    // cancelButton.on('click', removeText);
-    form.on('input', validate)
+    $('#jqStudentsTable tr:eq(0)').click((event) => {
+        let method = event.target.getAttribute('typeOfSort');
+        let newarr = JSON.parse(localStorage.getItem('studentsTable'));
+        newarr.sort((a, b) => {
+            if(a[method] < b[method]) { return -1; };
+            if(a[method] > b[method]) { return 1; };
+            return 0;
+        })
+        $('#jqStudentsTable tbody').html('')
+        id = 1;
+        newarr.forEach(function(item, i) {
+            $('#jqStudentsTable tbody').append('<tr><td>'+ id++ +'</td> </tr>');
+            for (key in item) {
+                $('#jqStudentsTable tbody tr:last').append('<td>' + item[key] + '</td>');
+            }
+        })
+    })
+
+    form.on('input', validate);
     function validate() {
         for (var i = 0; i < form.children().length; i++) {
             if (form.children()[i].value) {
