@@ -42,16 +42,32 @@ function jqueryStud() {
     cancelButton.click(() => {
         form.find('input').val('');
     })
-
+// table sort ↓
     $('#jqStudentsTable tr:eq(0)').click((event) => {
         let method = event.target.getAttribute('typeOfSort');
         let newarr = JSON.parse(localStorage.getItem('studentsTable'));
-        newarr.sort((a, b) => {
-            if(a[method] < b[method]) { return -1; };
-            if(a[method] > b[method]) { return 1; };
-            return 0;
+
+        if (method == 'none') {
+            return;
+        }
+        $('#jqStudentsTable tr:eq(0) td').each((i, item) => {
+            item.textContent = item.textContent.split(' ')[0]
         })
-        $('#jqStudentsTable tbody').html('')
+        newarr.sort((a, b) => {
+            return a[method].localeCompare(b[method])
+        });
+        if (!event.target.getAttribute('sorted')) {
+            event.target.setAttribute('sorted', 'true');
+        }
+        if (event.target.getAttribute('sorted') == 'true') {
+            newarr.reverse();
+            event.target.setAttribute('sorted', 'false');
+            event.target.textContent = event.target.textContent.split(' ')[0] + ' ↓';
+        } else if (event.target.getAttribute('sorted') == 'false') {
+            event.target.setAttribute('sorted', 'true');
+            event.target.textContent = event.target.textContent.split(' ')[0] + ' ↑';
+        }
+        $('#jqStudentsTable tbody').html('');
         id = 1;
         newarr.forEach(function(item, i) {
             $('#jqStudentsTable tbody').append('<tr><td>'+ id++ +'</td> </tr>');
